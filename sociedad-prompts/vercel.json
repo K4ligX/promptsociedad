@@ -1,12 +1,4 @@
 {
-  "version": 2,
-  "framework": "vite",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/public",
-  "installCommand": "npm install",
-  "functions": {
-    "api/generate-prompt.ts": {
-      "runtime": "@vercel/node@3"
-    }
-  }
+  "outputDirectory": "dist/public"
 }
