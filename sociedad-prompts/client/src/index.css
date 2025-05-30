@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Rasta theme colors */
+  --rasta-green: 142 76% 36%;
+  --rasta-yellow: 45 93% 47%;
+  --rasta-red: 0 74% 42%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .rasta-gradient {
+    background: linear-gradient(135deg, hsl(var(--rasta-green)) 0%, hsl(var(--rasta-yellow)) 50%, hsl(var(--rasta-red)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-3d {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, hsl(var(--rasta-green)) 0%, hsl(var(--rasta-yellow)) 50%, hsl(var(--rasta-red)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.9)) drop-shadow(4px 8px 12px rgba(0,0,0,0.6));
+  }
+  
+  .emoji-shadow {
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.9)) drop-shadow(1px 2px 3px rgba(0,0,0,0.7));
+  }
+  
+  .welcome-text-shadow {
+    filter: drop-shadow(2px 3px 5px rgba(0,0,0,0.8)) drop-shadow(1px 2px 3px rgba(0,0,0,0.6));
+  }
+  
+  .welcome-emoji-shadow {
+    filter: drop-shadow(2px 3px 5px rgba(0,0,0,0.8));
+  }
+  
+  /* Animated smoke particles background */
+  .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .smoke {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0;
+    animation: smokeRise 12s ease-out infinite;
+  }
+  
+  .smoke-1 {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, hsl(var(--rasta-green)) 0%, transparent 70%);
+    left: 15%;
+    bottom: -50px;
+    animation-delay: 0s;
+  }
+  
+  .smoke-2 {
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle, hsl(var(--rasta-yellow)) 0%, transparent 60%);
+    left: 25%;
+    bottom: -50px;
+    animation-delay: 2s;
+  }
+  
+  .smoke-3 {
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, hsl(var(--rasta-red)) 0%, transparent 65%);
+    left: 45%;
+    bottom: -50px;
+    animation-delay: 4s;
+  }
+  
+  .smoke-4 {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, hsl(var(--rasta-green)) 0%, transparent 70%);
+    left: 65%;
+    bottom: -50px;
+    animation-delay: 6s;
+  }
+  
+  .smoke-5 {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, hsl(var(--rasta-yellow)) 0%, transparent 55%);
+    left: 80%;
+    bottom: -50px;
+    animation-delay: 8s;
+  }
+  
+  .smoke-6 {
+    width: 22px;
+    height: 22px;
+    background: radial-gradient(circle, hsl(var(--rasta-red)) 0%, transparent 68%);
+    left: 35%;
+    bottom: -50px;
+    animation-delay: 10s;
+  }
+  
+  @keyframes smokeRise {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.5);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-40vh) translateX(15px) scale(1.2);
+      opacity: 0.4;
+    }
+    70% {
+      transform: translateY(-70vh) translateX(30px) scale(1.8);
+      opacity: 0.2;
+    }
+    100% {
+      transform: translateY(-110vh) translateX(50px) scale(2.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Pulse animation for main title */
+  .pulse-title {
+    animation: titlePulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes titlePulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  /* Hover effects for inspiration buttons */
+  .inspiration-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+  }
+  
+  .inspiration-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+    border-color: hsl(var(--rasta-yellow));
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 20px rgba(234, 179, 8, 0.2);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(234, 179, 8, 0.1), rgba(239, 68, 68, 0.1));
+  }
+  
+  /* Progress bar for generation */
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, hsl(var(--rasta-green)), hsl(var(--rasta-yellow)), hsl(var(--rasta-red)));
+    border-radius: 2px;
+    animation: progressFlow 2s ease-in-out infinite;
+  }
+  
+  @keyframes progressFlow {
+    0% {
+      width: 0%;
+      transform: translateX(-100%);
+    }
+    50% {
+      width: 100%;
+      transform: translateX(0%);
+    }
+    100% {
+      width: 100%;
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Custom cursor */
+  .custom-cursor {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCAxMEwxMy4wOSAxNS43NEwxMiAyMkwxMC45MSAxNS43NEw0IDEwTDEwLjkxIDguMjZMMTIgMloiIGZpbGw9IiNGRkQ3MDAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+Cjwvc3ZnPgo='), auto;
+  }
+  
+  /* Parallax background */
+  .bg-parallax {
+    background-attachment: fixed;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .rasta-bg-gradient {
+    background: linear-gradient(135deg, hsl(var(--rasta-green)) 0%, hsl(var(--rasta-yellow)) 50%, hsl(var(--rasta-red)) 100%);
+  }
+  
+  .bg-fixed-image {
+    background-image: url('https://pbs.twimg.com/media/E8yLWUJVkAIoHSk.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out 0.3s both;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0; 
+    transform: translateX(-30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
